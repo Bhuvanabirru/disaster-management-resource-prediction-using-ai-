@@ -6,7 +6,12 @@ const axios = require('axios');
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+// Enable CORS for all routes
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
 app.use(bodyParser.json());
 
 // In-memory database for now
